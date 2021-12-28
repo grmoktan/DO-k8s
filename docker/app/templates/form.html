@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Queue Demo</title>
+
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Create three equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 33.33%;
+          padding: 10px;
+          height: 300px; /* Should be removed. Only for demonstration */
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        .centered {
+            margin: 0 auto;
+            text-align: center;
+            width: 80%;
+        }
+        form {
+            overflow: hidden;
+            }
+        input {
+            float: right;
+            clear: both;
+            }
+        </style>
+   
+          
+          
+
+</head>
+<body>
+
+<div class="row">  
+<div class="centered" >
+    
+        <p >
+        This is a Message Queue Demo as a part of the <a href="https://www.digitalocean.com/community/pages/kubernetes-challenge">DO k8s challenge</a>. <br>
+        A <a href="https://github.com/vectorizedio/redpanda">RedPanda</a> cluster is deployed on Digital Ocean Kubernetes.       
+        </p>
+        <p>
+        Messages submitted via the form on the left is passed on by FastAPI to the <code>kafka-python</code>  producer module.
+        It is then sent to Redpanda on a topic.<br>
+        The consumer module then fetches them. Using the message offsets, a list of the last 10 messages is then passed back to FastAPI.
+        It is shown on the right.
+        <br><br>
+        </p>
+    </div>
+</div> 
+
+<div class="row">
+    <div class="column">
+        <p>Enter message:</p>
+        <hr> 
+        <br><br><br><br>
+        <form method="post">
+            <input type="text" name="message_for_q"  placeholder="Gimme a Message!" style='width:100%;color:Gray' maxlength="40" />
+            <br><br>
+            <input type="submit" value="Submit -->">
+        </form>    
+    </div>
+   
+    <div class="column">
+        <p style="text-align:center;" > 
+        <img src="https://raw.githubusercontent.com/vectorizedio/redpanda/b18573a20c0ad0ef29e71319a36ded688bc5843a/docs/PANDA_sitting.jpg" alt="Redpanda Cluster" style="width:66%;height:100%;" > 
+    </p>
+    <br><br><br><br>
+    <p style="text-align:right;">   
+        Project Repo: <a href="https://github.com/grmoktan/DO-k8s">Github link.</a>
+    </p>
+
+    </div>
+
+    <div class="column">
+        <p>Latest 10 messages in the queue:</p>
+        <hr> 
+        <br><br>
+            {% if result %}
+            <u>Offset</u> &nbsp;&nbsp;&nbsp;  <u>Message</u>
+            
+            {% endif %}
+            <br><br>
+            {% for msg in result %}
+        
+                {{msg}} 
+            <br>
+            {% endfor %}
+        </ol>
+    </div>
+</div> 
+
+
+
+</body>
+</html>

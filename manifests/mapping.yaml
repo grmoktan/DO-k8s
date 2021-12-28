@@ -1,0 +1,9 @@
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: msg-queue-demo
+  namespace: ambassador
+spec:
+  prefix: /
+  host: k8s.grmoktan.net
+  service: msg-queue-demo.simple-msg-queue

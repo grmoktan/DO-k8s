@@ -1,0 +1,12 @@
+apiVersion: getambassador.io/v2
+kind: Host
+metadata:
+  name: k8s-host
+  namespace: ambassador
+spec:
+  hostname: k8s.grmoktan.net
+  acmeProvider:
+    email: grmoktan@gmail.com
+  tlsSecret:
+    name: tls2-cert
+  
