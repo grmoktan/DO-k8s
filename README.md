@@ -4,7 +4,7 @@
 
 Deployed a [redpanda](https://github.com/vectorizedio/redpanda) cluster on DOKS. 
 
-A FastAPI webapp to demo message flow using ``kafka-python`` producer and consumer. 
+A FastAPI [webapp](https://k8s.grmoktan.net) to demo message flow using ``kafka-python`` producer and consumer. 
 
 Dockerized the webapp, pushed to DO container registry and fetched by corresponding deployment.
 
