@@ -2,7 +2,14 @@
 
 [DO K8s Challenge](https://www.digitalocean.com/community/pages/kubernetes-challenge) : Deploy a scalable message queue
 
-Deployed a [redpanda](https://github.com/vectorizedio/redpanda) cluster on DOKS. A FastAPI webapp to demo message flow using ``kafka-python`` producer and consumer. Dockerized the webapp, pushed to DO container registry and fetched by corresponding deployment.
+Deployed a [redpanda](https://github.com/vectorizedio/redpanda) cluster on DOKS. 
+
+A FastAPI webapp to demo message flow using ``kafka-python`` producer and consumer. 
+
+Dockerized the webapp, pushed to DO container registry and fetched by corresponding deployment.
+
+
+![Demop Webapp Screenshot](./img/screenshot_webapp.png)
 
 
 ----
